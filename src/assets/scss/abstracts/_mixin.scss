@@ -1,0 +1,60 @@
+@import '~@angular/material/theming';
+
+@mixin clearfix {
+  &::after, &::before {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin square($size) {
+  height: $size;
+  width: $size;
+}
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin respond($breakPoint) {
+
+  @if $breakPoint == phone {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+
+  @if $breakPoint == tab-port {
+    @media (min-width: 320px) and (max-width: 550px) { // 56.25 em
+      @content;
+    }
+  }
+
+  @if $breakPoint == small-desktop {
+    @media (min-width: 1025px) and (max-width: 1279px) {
+      @content;
+    }
+  }
+
+  @if $breakPoint == regular-desktop {
+    @media (min-width: 1280px) and (max-width: 1400px) {
+      @content;
+    }
+  }
+
+  @if $breakPoint == large-desktop {
+    @media (max-width: 1800px) {
+      @content;
+    }
+  }
+}
+
+@mixin imageCircle($size) {
+  height: $size;
+  width: $size;
+  display: inline-block;
+  border-radius: 50%;
+}

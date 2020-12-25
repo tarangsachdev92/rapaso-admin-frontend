@@ -1,0 +1,85 @@
+@import "../../../../assets/scss/abstracts/abstracts";
+@import '~@angular/material/theming';
+
+.sidebar{
+    background-color: mat-color($mat-brown, 800);
+    width: $sidebar-width;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    transition: 0.2s all ease-in;
+
+    &--hide{
+        width: 9rem;
+    }
+
+    &__top{
+        background-color: mat-color($mat-brown, 900);
+        height: 9rem;
+        overflow: hidden;
+
+        button{
+            @include square(4rem);
+            position: fixed;
+            left: 2rem;
+            top: 2.5rem;
+            line-height: 2.4rem;
+        }
+
+        img{
+            position: relative;
+            vertical-align: middle;
+            max-width: 15rem;
+            top: 1rem;
+            left: 7rem;
+        }
+    }
+
+    li{
+        a{
+            color: $white-color;
+            display: block;
+            padding: 1.2rem 2rem;
+            font-size: 1.6rem;
+            font-weight: 400;
+            text-decoration: none;
+            border-bottom: 1px solid mat-color($mat-brown, 700);
+            white-space: nowrap;
+
+            &.active{
+                .material-icons{
+                    &.more{
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+
+            .material-icons{
+                text-align: center;
+                vertical-align: middle;
+                font-size: 2.4rem;
+                margin-right: 2rem;
+                width: 4rem;
+
+                &.more{
+                    position: absolute;
+                    right: 0;
+                    margin-right: 0;
+                }
+            }
+
+            &:hover{
+                background-color: mat-color($mat-brown, 700);
+            }
+        }
+
+        ul{
+            background-color: mat-color($mat-brown, 900);
+
+            li{
+                list-style: none;
+            }
+        }
+    }
+  }

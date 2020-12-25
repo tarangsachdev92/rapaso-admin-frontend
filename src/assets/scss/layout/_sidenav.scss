@@ -1,0 +1,45 @@
+.sidebar{
+    &__top{
+        .mat-button-wrapper{
+            padding: 0 !important;
+
+            .material-icons{
+                vertical-align: sub;
+                font-size: 2.4rem;
+            }
+        }
+    }
+
+    &__bottom{
+        width: $sidebar-width;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        height: 6rem;
+
+        .mat-button.mat-button-base{
+            text-align: left;
+            width: 100%;
+            height: 6rem;
+        }
+
+        &--hide{
+            button{
+                width: 9rem !important;
+            }
+        }
+    }
+
+    &__profile{
+        @include imageCircle(4rem);
+        background-color: $white-color;
+        text-align: center;
+        line-height: 4rem;
+    }
+
+    &__name{
+        color: $white-color;
+        display: inline-block;
+        margin-left: 1rem;
+    }
+}

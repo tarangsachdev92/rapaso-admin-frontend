@@ -1,0 +1,176 @@
+<div class="sidebar" [ngClass]="{ 'sidebar--hide': collpaseSidebar }">
+    <div class="sidebar__top">
+        <button (click)="onCollapseMenu()" type="button" mat-mini-fab color="accent">
+            <span class="material-icons">
+                menu
+            </span>
+          </button>
+        <img *ngIf="!collpaseSidebar" src="assets/images/logo.png" />
+    </div>
+    <ul>
+        <li>
+            <a>
+                <span class="material-icons">
+                    dashboard
+                </span>
+                <b *ngIf="!collpaseSidebar">Dashboard</b>
+            </a>
+        </li>
+        <li>
+            <a [ngClass]="{'active' : isSubMenu === 'restaurant'}" (click)="onOpenSubMenu('restaurant')">
+                <span class="material-icons">
+                    storefront
+                </span>
+                <b *ngIf="!collpaseSidebar">Restaurant</b>
+                <span *ngIf="!collpaseSidebar" class="material-icons more">
+                    keyboard_arrow_right
+                </span>
+            </a>
+
+            <ul *ngIf="isSubMenu === 'restaurant'">
+                <li>
+                    <a>
+                        <span class="material-icons">
+                            visibility
+                        </span>
+                        <b *ngIf="!collpaseSidebar">View Restaurant</b>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span class="material-icons">
+                            add
+                        </span>
+                        <b *ngIf="!collpaseSidebar">Add Restaurant</b>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a>
+                <span class="material-icons">
+                    menu_book
+                </span>
+                <b *ngIf="!collpaseSidebar">Add Menu Item</b>
+            </a>
+        </li>
+
+        <li>
+            <a>
+                <span class="material-icons">
+                    filter_alt
+                </span>
+                <b *ngIf="!collpaseSidebar">Add customisation</b>
+            </a>
+        </li>
+
+        <li>
+            <a>
+                <span class="material-icons">
+                    person
+                </span>
+                <b *ngIf="!collpaseSidebar">Add billing customer info</b>
+            </a>
+        </li>
+
+        <li>
+            <a [ngClass]="{'active' : isSubMenu === 'billing'}" (click)="onOpenSubMenu('billing')">
+                <span class="material-icons">
+                    receipt_long
+                </span>
+                <b *ngIf="!collpaseSidebar">Billing</b>
+                <span *ngIf="!collpaseSidebar" class="material-icons more">
+                    keyboard_arrow_right
+                </span>
+            </a>
+
+            <ul *ngIf="isSubMenu === 'billing'">
+                <li>
+                    <a>
+                        <span class="material-icons">
+                            settings
+                        </span>
+                        <b *ngIf="!collpaseSidebar">Manage Service</b>
+                    </a>
+                </li>
+	            <li>
+                    <a>
+                        <span class="material-icons">
+                            add
+                        </span>
+                        <b *ngIf="!collpaseSidebar">Add Service</b>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span class="material-icons">
+                            receipt
+                        </span>
+                        <b *ngIf="!collpaseSidebar">Manage invoice</b>
+                    </a>
+                </li>
+	            <li>
+                    <a>
+                        <span class="material-icons">
+                            sticky_note_2
+                        </span>
+                        <b *ngIf="!collpaseSidebar">Generate new invoice</b>
+                    </a>
+                </li>
+            </ul>
+
+        </li>
+       
+        <li>
+            <a [ngClass]="{'active' : isSubMenu === 'orders'}" (click)="onOpenSubMenu('orders')">
+                <span class="material-icons">
+                    content_paste
+                </span>
+                <b *ngIf="!collpaseSidebar">Orders</b>
+                <span *ngIf="!collpaseSidebar" class="material-icons more">
+                    keyboard_arrow_right
+                </span>
+            </a>
+
+            <ul *ngIf="isSubMenu === 'orders'">
+                <li>
+                    <a>
+                        <span class="material-icons">
+                            format_list_bulleted
+                        </span>
+                        <b *ngIf="!collpaseSidebar">Order list</b>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span class="material-icons">
+                            payments
+                        </span>
+                        <b *ngIf="!collpaseSidebar">Manage Payments</b>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a>
+                <span class="material-icons">
+                    people
+                </span>
+                <b *ngIf="!collpaseSidebar">Customers</b>
+            </a>
+        </li>
+    </ul>
+
+    <div class="sidebar__bottom" [ngClass]="{'sidebar__bottom--hide' : collpaseSidebar}">
+        <button mat-button [matMenuTriggerFor]="menu">
+            <span class="sidebar__profile">JD</span>
+            <span *ngIf="!collpaseSidebar" class="sidebar__name">John Doe</span>
+        </button>
+        <mat-menu xPosition="after" #menu="matMenu">
+            <button type="button" mat-menu-item>View Profile</button>
+            <button type="button" mat-menu-item>Logout</button>
+        </mat-menu>
+    </div>
+</div>
